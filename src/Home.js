@@ -1,5 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default (props) => {
-  return <h1>Hello {props.name}!</h1>;
+  const [counter, setCounter] = useState(0);
+  return (
+    <div>
+      <h1>Hello {props.name}!</h1>
+      <span>{counter}</span>
+      <button
+        onClick={() => {
+          setCounter(counter + 1);
+        }}
+      >
+        Click
+      </button>
+    </div>
+  );
 };

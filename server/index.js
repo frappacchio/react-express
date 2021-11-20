@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
       console.error("Something went wrong:", err);
       return res.status(500).send("Oops, better luck next time!");
     }
-
+    console.log("demo");
     return res.send(
       data.replace('<div id="root"></div>', `<div id="root">${app}</div>`)
     );
