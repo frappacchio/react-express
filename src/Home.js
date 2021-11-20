@@ -22,7 +22,7 @@ const Home = (props) => {
           <Link to="/pippo">Pippo</Link>
         </li>
         <li>
-          <Link to="/pluto">Pippo</Link>
+          <Link to="/pluto">Pluto</Link>
         </li>
       </ul>
     </div>

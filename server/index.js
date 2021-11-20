@@ -9,7 +9,7 @@ import App from "../src/App";
 
 const PORT = process.env.PORT || 3006;
 const app = express();
-app.get("*", (req, res) => {
+app.get(["/", "/pippo", "/pluto"], (req, res) => {
   const app = ReactDOMServer.renderToString(
     <StaticRouter location={req.url}>
       <App />
@@ -28,7 +28,7 @@ app.get("*", (req, res) => {
   });
 });
 
-app.use(express.static("./build"));
+app.use(express.static("./build/"));
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
