@@ -1,6 +1,6 @@
 import path from "path";
 import fs from "fs";
-
+import axios from "axios";
 import React from "react";
 import express from "express";
 import ReactDOMServer from "react-dom/server";
@@ -9,7 +9,11 @@ import App from "../src/App";
 
 const PORT = process.env.PORT || 3006;
 const app = express();
-app.get(["/", "/pippo", "/pluto"], (req, res) => {
+app.get("[a-zA-Z0-9/]+", async (req, res) => {
+  const data = await axios
+    .get("https://jsonplaceholder.typicode.com/posts/1")
+    .then((response) => response.data);
+
   const app = ReactDOMServer.renderToString(
     <StaticRouter location={req.url}>
       <App />
